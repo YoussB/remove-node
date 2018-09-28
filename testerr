@@ -1,0 +1,29 @@
+#!/bin/bash
+
+exitt ()
+{
+  echo "\r\nGot the Signal of death ... dying"
+  exit 1
+}
+
+export fswatchExists=$( command -v fswatch )
+
+echo $fswatchExists
+
+if [ -z  $fswatchExists ]
+then
+  brew install fswatch
+fi
+
+
+
+#Check for fswatch
+echo "tester relative"
+while :; do
+  trap exitt 1 2 3 6
+  echo "waiting for file/folder "$PWD"/"$1" to change. ctrl+c to exit"
+  fswatch -1 "$PWD/$1"
+  echo "changed! running command: "$2
+  eval "$2"
+done
+

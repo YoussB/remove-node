@@ -1,8 +1,8 @@
-# remove-node
+# 1. remove-node
 GO Playground - simple code to remove all node_modules & bower_components folders from a given directory.
 
 
-# Usage: 
+## Usage: 
 
 inside code directory ```go install```
 

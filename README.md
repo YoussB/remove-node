@@ -10,3 +10,10 @@ run code from `GOBIN` folder with folder name as argument.
 
 
 License Apache v2.0
+
+
+ # 2. Amend for multiple commits
+ 
+`git filter-branch -env-filter "$( git duet )" HEAD~2..HEAD`
+
+This will run `git duet` on `HEAD~2` up to `HEAD`
